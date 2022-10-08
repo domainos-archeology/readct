@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/domainos-archeology/read_ct_go/read_ct"
+	"github.com/domainos-archeology/readct/cli"
 )
 
 func main() {
-	read_ct.ReadTape(os.Args[1])
+	cli.ReadTape(os.Args[1])
 }
