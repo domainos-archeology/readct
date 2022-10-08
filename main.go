@@ -9,6 +9,7 @@ import (
 func main() {
 	if os.Args[1] == "x" {
 		cli.Extract(os.Args[2:])
+	} else {
+		cli.Index(os.Args[1:])
 	}
-	cli.Index(os.Args[1:])
 }

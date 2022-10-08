@@ -57,7 +57,8 @@ func Extract(paths []string) {
 
 		case FileOldMessage:
 			if fileName == "" {
-				panic("no active file...")
+				fmt.Println("no active file when we got a FileOldMessage...")
+				break
 			}
 			fmt.Printf("(file) %s  (unknown %d)\n", fileName, m.Header.Size)
 			remainingFileSize = int(m.Header.Size)
