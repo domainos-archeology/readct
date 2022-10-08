@@ -7,5 +7,8 @@ import (
 )
 
 func main() {
-	cli.ReadTape(os.Args[1])
+	if os.Args[1] == "x" {
+		cli.Extract(os.Args[2:])
+	}
+	cli.Index(os.Args[1:])
 }
