@@ -1,6 +1,6 @@
 # readct
 
-A CLI for showing the index of apollo rbak format tape archives, and for extracting files from those archives.
+A CLI for showing the index of apollo rbak format tape archives (such as those found on [bitsavers](http://bitsavers.org/bits/Apollo/SR10.4/), and for extracting files from those archives.
 
 I got kinda tired of dealing with the `rbak` source from the apollo archives, and also getting it to compile on macos.  So, I rewrote it in go.
 
