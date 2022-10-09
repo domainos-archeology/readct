@@ -4,9 +4,19 @@ A CLI for showing the index of apollo rbak format tape archives (such as those f
 
 I got kinda tired of dealing with the `rbak` source from the apollo archives, and also getting it to compile on macos.  So, I rewrote it in go.
 
+Usage:
+
+```
+# index
+% readct [ctimages...]
+
+# extract
+% readct x [ctimages...]
+```
+
 examples:
 
-### index from a collection of tape archive files
+### indexing
 
 ```
 % ./readct \
@@ -35,7 +45,7 @@ read_ct: reading from ../../sr10.2/017286-001.CRTG_STD_SFW_BOOT_1-REV.00-SYSTEM_
 etc
 ```
 
-### extracting from a collection of tape archive files
+### extracting
 
 ```
 % ./readct x \
