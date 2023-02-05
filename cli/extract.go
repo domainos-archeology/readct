@@ -17,22 +17,26 @@ func Extract(paths []string) {
 
 		case DirMessage:
 			fmt.Printf("(dir) %s\n", m.Name)
-			if m.Name[0] == '/' || m.Name[0] == '.' {
-				panic("bad dir name")
-			}
-			err := os.MkdirAll(m.Name, 0755)
-			if err != nil {
-				panic(fmt.Sprintf("failed to make directory structure %v", err))
+			if len(m.Name) > 0 {
+				if m.Name[0] == '/' || m.Name[0] == '.' {
+					panic("bad dir name")
+				}
+				err := os.MkdirAll(m.Name, 0755)
+				if err != nil {
+					panic(fmt.Sprintf("failed to make directory structure %v", err))
+				}
 			}
 
 		case DirOldMessage:
 			fmt.Printf("(dir) %s\n", m.Name)
-			if m.Name[0] == '/' || m.Name[0] == '.' {
-				panic("bad dir name")
-			}
-			err := os.MkdirAll(m.Name, 0755)
-			if err != nil {
-				panic(fmt.Sprintf("failed to make directory structure %v", err))
+			if len(m.Name) > 0 {
+				if m.Name[0] == '/' || m.Name[0] == '.' {
+					panic("bad dir name")
+				}
+				err := os.MkdirAll(m.Name, 0755)
+				if err != nil {
+					panic(fmt.Sprintf("failed to make directory structure %v", err))
+				}
 			}
 
 		case NameMessage:
@@ -40,7 +44,8 @@ func Extract(paths []string) {
 
 		case FileMessage:
 			if fileName == "" {
-				panic("no active file...")
+				// panic("no active file...")
+				break
 			}
 			fmt.Printf("(file) %s  (%s %d)\n", fileName, typeName(UID{m.Header.TypeHigh, m.Header.TypeLow}), m.Header.Size)
 			remainingFileSize = int(m.Header.Size)
@@ -114,6 +119,7 @@ func Extract(paths []string) {
 			os.Symlink(m.Destination, m.Name)
 
 		default:
+			fmt.Println("UNHANDLED MESSAGE TYPE")
 			// do nothing
 		}
 	}
